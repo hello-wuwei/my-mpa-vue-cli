@@ -1,0 +1,57 @@
+{
+  "name": "webpack-react",
+  "version": "1.0.0",
+  "description": "My react-cli",
+  "main": "index.js",
+  "scripts": {
+    "start": "cross-env APP_ENV=development webpack-dev-server --inline --config ./config/dev.js",
+    "build:dev": "cross-env APP_ENV=dev webpack --config ./config/webpack.prod.config.js",
+    "build:test": "cross-env APP_ENV=test webpack --config ./config/build.js",
+    "build:prod": "cross-env APP_ENV=production webpack --config ./config/webpack.prod.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hello-wuwei/webpack-react.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hello-wuwei/webpack-react/issues"
+  },
+  "homepage": "https://github.com/hello-wuwei/webpack-react#readme",
+  "devDependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "autoprefixer": "^9.6.5",
+    "babel-eslint": "^10.0.3",
+    "babel-loader": "^8.0.6",
+    "clean-webpack-plugin": "^3.0.0",
+    "cross-env": "^7.0.0",
+    "css-loader": "^3.2.0",
+    "eslint": "^6.8.0",
+    "eslint-plugin-react": "^7.18.3",
+    "file-loader": "^4.2.0",
+    "html-webpack-plugin": "^3.2.0",
+    "less": "^3.10.3",
+    "less-loader": "^5.0.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss": "^7.0.18",
+    "postcss-loader": "^3.0.0",
+    "style-loader": "^1.0.0",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "url-loader": "^2.2.0",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.8.2",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2"
+  }
+}
