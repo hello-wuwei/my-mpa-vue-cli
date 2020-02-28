@@ -1,7 +1,7 @@
 const merge = require('webpack-merge');
 const common = require('./webpack.base.config.js');
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');  // 这个插件不被 webpack 官方文档所收录
 
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
@@ -9,6 +9,7 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
 const autoprefixer = require("autoprefixer")
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = merge(common, {
   mode: 'production',
@@ -23,26 +24,40 @@ module.exports = merge(common, {
       */
       /* 遇到后缀为.css的文件，webpack先用css-loader加载器去解析这个文件，遇到“@import”等语句就将相应样式文件引入（所以如果没有css-loader，就没法解析这类语句），最后计算完的css，将会使用style-loader生成一个内容为最终解析完的css代码的style标签，放到head标签里*/
       {
-        test: /\.less$/,
-        use: [ 
-          // 'style-loader', 
-          MiniCssExtractPlugin.loader,
-          'css-loader',    // webpack识别css文件（webpack只识别js代码，需要转化）
+        test: /\.vue$/,
+        use: [
           {
-            loader: "postcss-loader",
+            loader: 'vue-loader',
             options: {
-              plugins: () =>
-                autoprefixer({
-                  overrideBrowserslist: ['last 5 version', '>1%', 'ie >=8']
-                })
+              compilerOptions: {
+                preserveWhitespace: false
+              }
             }
+          }
+        ]
+      },
+      {
+        test: /\.(scss|sass)$/,
+        use: [
+          // {
+          //   loader: 'style-loader',
+          // },
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
           },
-          'less-loader'  // 转换less文件样式为css
+          {
+            loader: 'sass-loader'
+          },
+          {
+            loader: 'postcss-loader'
+          }
         ]
       }
     ]
   },
   plugins: [
+    new VueLoaderPlugin(),
     new CleanWebpackPlugin(),
     // style样式是通过style-loader预处理，插入到了head标签内，但是我们平常写样式的时候，一定是通过引入外部css文件进行样式引入的(配合rules中的MiniCssExtractPlugin.loader)，即拆分css文件打包
     new MiniCssExtractPlugin({
