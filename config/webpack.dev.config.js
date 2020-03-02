@@ -23,16 +23,19 @@ module.exports = merge(common, {
         ]
       },
       {
-        test: /\.(scss|sass)$/,
+        test: /\.(less|css)$/,
         use: [
           {
             loader: 'style-loader',
           },
+          // {
+          //   loader: 'vue-style-loader'
+          // },
           {
             loader: 'css-loader',
           },
           {
-            loader: 'sass-loader'
+            loader: 'less-loader'
           },
           {
             loader: 'postcss-loader'
@@ -46,7 +49,7 @@ module.exports = merge(common, {
     // historyApiFallback: true,    // 当使用 HTML5 History API 时，任意的 404 响应都可能需要被替代为 index.html
     // host: process.env.HOST || '0.0.0.0',
     open: true,
-    port: 9000,
+    port: 9090,
     compress: true,
     hot: true,
     proxy: setupProxy

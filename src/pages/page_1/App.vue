@@ -14,14 +14,9 @@ export default {
   }
 }
 </script>
-
-<style lang="sass" scoped>
-.home {
-  .container {
-    width: 100%;
-    height: 100%;
-    padding: 10px;
-    box-sizing: border-box;
-  }
+<style scoped lang="less">
+.home-container{
+  height: 200px;
+  background: #000
 }
 </style>
