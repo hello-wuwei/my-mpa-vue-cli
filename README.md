@@ -1,5 +1,5 @@
-## webpack-react
-my mpa-react-cli
+## webpack-vue
+my mpa-vue-cli
 
 ## node版本
 v12.13.0
