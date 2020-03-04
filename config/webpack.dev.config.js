@@ -5,23 +5,14 @@ const setupProxy = require('./setupProxy')
 
 const webpack = require('webpack');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+
+const { VueLoaderRule } = require('./util')
+
 module.exports = merge(common, {
   mode: 'development',
   module: {
     rules: [
-      {
-        test: /\.vue$/,
-        use: [
-          {
-            loader: 'vue-loader',
-            options: {
-              compilerOptions: {
-                preserveWhitespace: false
-              }
-            }
-          }
-        ]
-      },
+      VueLoaderRule,
       {
         test: /\.(less|css)$/,
         use: [

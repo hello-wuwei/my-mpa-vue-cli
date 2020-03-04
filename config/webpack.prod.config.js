@@ -8,36 +8,17 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 const OptimizeCssAssetsPlugin = require('optimize-css-assets-webpack-plugin')
-const autoprefixer = require("autoprefixer")
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+
+const { VueLoaderRule } = require('./util')
 
 module.exports = merge(common, {
   mode: 'production',
   module: {
     rules: [
-      /* postcss 一种对css编译的工具，类似babel对js的处理，常见的功能如：
-        1 . 使用下一代css语法
-        2 . 自动补全浏览器前缀
-        3 . 自动把px代为转换成rem
-        4 . css 代码压缩等等
-        postcss 只是一个工具，本身不会对css一顿操作，它通过插件实现功能，autoprefixer 就是其一(glugins中require('autoprefixer')({ browsers: ['last 5 version', '>1%', 'ie >=8'] }))
-      */
-      /* 遇到后缀为.css的文件，webpack先用css-loader加载器去解析这个文件，遇到“@import”等语句就将相应样式文件引入（所以如果没有css-loader，就没法解析这类语句），最后计算完的css，将会使用style-loader生成一个内容为最终解析完的css代码的style标签，放到head标签里*/
+      VueLoaderRule,
       {
-        test: /\.vue$/,
-        use: [
-          {
-            loader: 'vue-loader',
-            options: {
-              compilerOptions: {
-                preserveWhitespace: false
-              }
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(less)$/,
+        test: /\.(less|css)$/,
         use: [
           // {
           //   loader: 'style-loader',
