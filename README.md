@@ -1,4 +1,3 @@
-<script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"></script>
 ## webpack-react
 my mpa-react-cli
 
@@ -15,7 +14,7 @@ v12.13.0
 
 ## 关于html中font-size的设置
 font-size根据实际window尺寸换算（根据等比相似换算原则）
-$$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
+`
 
         设计图局部尺寸                      设计图总宽度尺寸               
 --------------------------------  =  -------------------------
@@ -38,4 +37,4 @@ $$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
                      屏幕宽度实际尺寸 * 换算倍率        100vw * 自定义换算倍率    
 html-font-size  =  ---------------------------  =  ----------------------
                           设计图总宽度尺寸             实际项目设计图总宽度尺寸
-
+`
