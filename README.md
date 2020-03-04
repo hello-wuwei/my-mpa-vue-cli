@@ -1,3 +1,4 @@
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 ## webpack-react
 my mpa-react-cli
 
@@ -14,9 +15,7 @@ v12.13.0
 
 ## 关于html中font-size的设置
 font-size根据实际window尺寸换算（根据等比相似换算原则）
-<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script>
 $$x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
-\\(x=\frac{-b\pm\sqrt{b^2-4ac}}{2a}\\)
 
         设计图局部尺寸                      设计图总宽度尺寸               
 --------------------------------  =  -------------------------
