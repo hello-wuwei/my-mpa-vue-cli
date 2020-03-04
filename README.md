@@ -14,7 +14,7 @@ v12.13.0
 
 ## 关于html中font-size的设置
 font-size根据实际window尺寸换算（根据等比相似换算原则）
-$$\frac{1}{3}$$
+<img src="http://chart.googleapis.com/chart?cht=tx&chl=\frac{\text{我}}{\text{是}}" style="border:none;">
 
         设计图局部尺寸                      设计图总宽度尺寸               
 --------------------------------  =  -------------------------
