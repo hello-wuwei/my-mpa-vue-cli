@@ -23,7 +23,7 @@ module.exports = merge(prodConfig, {
       filename: 'index.html',   // 为什么不是 '../public/index.html'，我的理解是无论与要用的template是不是在一个目录，都是从根路径开始查找
       template: 'src/pages/' + npm_config_name + '/index.html',
       inject: true,
-      chunks: ['index'],
+      chunks: ['index', 'vendor'],
       minify: {
         removeComments: true,
         collapseWhitespace: true,

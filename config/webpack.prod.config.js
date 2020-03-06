@@ -20,10 +20,14 @@ module.exports = merge(common, {
       {
         test: /\.(less|css)$/,
         use: [
-          // {
-          //   loader: 'style-loader',
-          // },
-          MiniCssExtractPlugin.loader,
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              // you can specify a publicPath here             
+              // by default it use publicPath in webpackOptions.output             
+              publicPath: '../'    // 处理css背景图片在打包后引入路径问题
+            }
+          },
           {
             loader: 'css-loader',
           },
